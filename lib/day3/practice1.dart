@@ -16,4 +16,5 @@ class Cleric {
     num healed = seconds + Random().nextInt(2);
     return healed;
   }
+
 }
