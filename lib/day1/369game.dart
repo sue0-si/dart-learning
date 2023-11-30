@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 void main() {
   late var result;
   int clapCount = 0;
@@ -50,14 +52,21 @@ void main() {
 
 }
 
+// int find_max_value(List<int> numArray) {
+//   int max = numArray[0];
+//   int index = 1;
+//   for (int i = 0; i < numArray.length; i++) {
+//       if (numArray[i] > max) {
+//         max = numArray[i];
+//         index = i + 1;
+//       }
+//   }
+//   return index;
+// }
+
 int find_max_value(List<int> numArray) {
-  int max = numArray[0];
-  int index = 1;
-  for (int i = 0; i < numArray.length; i++) {
-      if (numArray[i] > max) {
-        max = numArray[i];
-        index = i + 1;
-      }
-  }
-  return index;
+  int max = numArray.reduce((a, b) => a > b ? a : b);
+  return numArray.indexOf(max) + 1;
 }
+
+
