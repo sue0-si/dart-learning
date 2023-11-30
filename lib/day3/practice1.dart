@@ -1,3 +1,5 @@
+import 'dart:math';
+
 class Cleric {
   int hp = 50;
   late String name;
@@ -10,5 +12,8 @@ class Cleric {
     hp = maxHP;
   }
 
-
+  num pray(int seconds) {
+    num healed = seconds + Random().nextInt(2);
+    return healed;
+  }
 }
