@@ -13,8 +13,22 @@ class Cleric {
   }
 
   num pray(int seconds) {
-    num healed = seconds + Random().nextInt(2);
+    int healed = seconds + Random().nextInt(2);
+    if (healed + mp > maxMP) {
+        mp = maxMP;
+    }
+    mp += healed;
+    print('amount of heal: $healed');
     return healed;
   }
+  Cleric(this.hp, this.name, this.mp);
+}
 
+void main() {
+  Cleric cleric = new Cleric(23, "me", 2);
+  cleric.pray(50);
+  cleric.selfAid();
+
+  print(cleric.hp);
+  print(cleric.mp);
 }
