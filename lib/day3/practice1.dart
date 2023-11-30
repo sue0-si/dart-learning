@@ -11,6 +11,7 @@ class Cleric {
     mp -= 5;
     hp = maxHP;
   }
+
   num pray(int seconds) {
     num healed = seconds + Random().nextInt(2);
     return healed;
