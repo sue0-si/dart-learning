@@ -48,11 +48,11 @@ class Cleric {
 }
 
 void main() {
-  // 2-2 A) 이 클래스는 Cleric(“아서스", hp: 40, mp: 5) 와 같이, 이름, HP, MP 를 지정하여 인스턴스화 할 수 있다.
-  // Cleric cleric = Cleric(name: "me", hp: 23, mp: 2);
+  // 2-2 A) 이름, HP, MP 를 지정하여 인스턴스화 할 수 있다.
+  Cleric cleric1 = Cleric(name: "me", hp: 23, mp: 2);
 
   // 2-2 B) Cleric(“아서스", hp: 35) 와 같이, 이름과 HP만으로 지정하여 인스턴스화 할 수 있다. 이 때, MP는 최대 MP와 같은 값이 초기화 된다.
-  // Cleric cleric = Cleric(name: "me", hp: 23);
+  Cleric cleric2 = Cleric(name: "me", hp: 23);
 
   // 2-2 C) Cleric(“아서스") 와 같이 이름만을 지정하여 인스턴스화 할 수 있다. 이 때, HP 와 MP 는 최대 HP와 최대 MP로 초기화 된다
   Cleric cleric = Cleric(name: "me");
@@ -68,6 +68,5 @@ void main() {
 
   print('\n현재 hp: ${cleric.hp}');
   print('현재 mp: ${cleric.mp}');
-
 
 }
