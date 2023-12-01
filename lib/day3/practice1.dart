@@ -20,6 +20,8 @@ class Cleric {
     if (mp >= 5) {
       mp -= 5;
       hp = maxHP;
+    } else {
+      print("자힐에 필요한 MP가 부족해요!!");
     }
   }
 
@@ -28,13 +30,18 @@ class Cleric {
   // 연습 1-3에서 선언한 Cleric 클래스에 “pray()” 메소드를 추가하시오.
   // 이 메소드는 인수에 “기도할 시간(초)"를 지정할 수 있고, 리턴 값은 “실제로 회복된 MP 양" 을 반환한다.
   int pray(int seconds) {
+    int result;
     int healed = seconds + Random().nextInt(2);
     if (healed + mp > maxMP) {
+      healed = maxMP;
       mp = maxMP;
+      result = maxMP - healed;
+    } else {
+      mp += healed;
+      result = healed;
     }
-    mp += healed;
-    print('amount of heal: $healed');
-    return healed;
+    print('$result만큼 hp가 회복되었습니다.');
+    return result;
   }
 
   Cleric(this.hp, this.name, this.mp);
