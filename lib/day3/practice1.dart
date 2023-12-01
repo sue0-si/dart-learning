@@ -8,11 +8,13 @@ class Cleric {
   int mp = 10;
 
   void selfAid() {
-    mp -= 5;
-    hp = maxHP;
+    if (mp >= 5) {
+      mp -= 5;
+      hp = maxHP;
+    }
   }
 
-  num pray(int seconds) {
+  int pray(int seconds) {
     int healed = seconds + Random().nextInt(2);
     if (healed + mp > maxMP) {
         mp = maxMP;
