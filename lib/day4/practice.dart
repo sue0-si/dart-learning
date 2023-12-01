@@ -7,11 +7,15 @@ import 'dart:math';
 class Cleric {
   int hp = 50;
   late String name;
-  static int maxHP = 50;
-  static int maxMP = 10;
+  static const int maxHP = 50;
+  static const int maxMP = 10;
   int mp = 10;
 
   void selfAid() {
+    if (hp >= 50 ) {
+      print("자힐 실패: 이미 hp가 최대치에요!");
+      return;
+    }
     if (mp >= 5) {
       mp -= 5;
       hp = maxHP;
@@ -19,7 +23,6 @@ class Cleric {
       print("자힐에 필요한 MP가 부족해요!!");
     }
   }
-
 
   int pray(int seconds) {
     int result;
@@ -36,11 +39,27 @@ class Cleric {
     return result;
   }
 
-  Cleric(this.hp, this.name, this.mp);
+  Cleric({
+    required this.name,
+    this.hp = maxHP,
+    this.mp = maxMP,
+  });
+
 }
 
 void main() {
-  Cleric cleric = new Cleric(23, "me", 2);
+  // 2-2 A) 이 클래스는 Cleric(“아서스", hp: 40, mp: 5) 와 같이, 이름, HP, MP 를 지정하여 인스턴스화 할 수 있다.
+  // Cleric cleric = Cleric(name: "me", hp: 23, mp: 2);
+
+  // 2-2 B) Cleric(“아서스", hp: 35) 와 같이, 이름과 HP만으로 지정하여 인스턴스화 할 수 있다. 이 때, MP는 최대 MP와 같은 값이 초기화 된다.
+  // Cleric cleric = Cleric(name: "me", hp: 23);
+
+  // 2-2 C) Cleric(“아서스") 와 같이 이름만을 지정하여 인스턴스화 할 수 있다. 이 때, HP 와 MP 는 최대 HP와 최대 MP로 초기화 된다
+  Cleric cleric = Cleric(name: "me");
+
+  // 2-2 D) Cleric() 과 같이 이름을 지정하지 않는 경우에는 인스턴스화 할 수 없다고 한다. (이름이 없는 성직자는 존재 할 수 없음)
+  // Cleric cleric = Cleric();
+
   print('초기 hp: ${cleric.hp}');
   print('초기 mp: ${cleric.mp}\n');
 
@@ -49,4 +68,6 @@ void main() {
 
   print('\n현재 hp: ${cleric.hp}');
   print('현재 mp: ${cleric.mp}');
+
+
 }
