@@ -40,7 +40,7 @@ class Cleric {
       mp += healed;
       result = healed;
     }
-    print('$result만큼 hp가 회복되었습니다.');
+    print('$result만큼 mp가 회복되었습니다.');
     return result;
   }
 
@@ -49,10 +49,12 @@ class Cleric {
 
 void main() {
   Cleric cleric = new Cleric(23, "me", 2);
+  print('초기 hp: ${cleric.hp}');
+  print('초기 mp: ${cleric.mp}\n');
 
-  cleric.pray(50);
   cleric.selfAid();
+  cleric.pray(3);
 
-  print(cleric.hp);
-  print(cleric.mp);
+  print('\n현재 hp: ${cleric.hp}');
+  print('현재 mp: ${cleric.mp}');
 }
