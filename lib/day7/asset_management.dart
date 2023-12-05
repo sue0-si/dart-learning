@@ -26,9 +26,26 @@ class Computer extends TangibleAsset {
   });
 }
 
-abstract class TangibleAsset {
+abstract class TangibleAsset extends Asset {
 
 }
+
+// 가
+abstract class Asset {
+
+}
+
+//나
+abstract class IntangibleAsset extends Asset {
+
+}
+
+//다
+class Patent extends IntangibleAsset {
+
+}
+
+
 
 void main() {
 
