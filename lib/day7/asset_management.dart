@@ -10,6 +10,7 @@ class Book extends TangibleAsset {
     required this.color,
     required this.isbn,
   });
+
 }
 
 class Computer extends TangibleAsset {
@@ -24,10 +25,19 @@ class Computer extends TangibleAsset {
     required this.color,
     required this.makerName,
   });
+
 }
 
-abstract class TangibleAsset extends Asset {
+abstract class TangibleAsset extends Asset implements Thing {
+  double _weight = 20.5;
 
+  @override
+  double get getWeight => _weight;
+
+  @override
+  set setWeight(double weight) {
+    _weight = weight;
+  }
 }
 
 // 가
@@ -46,21 +56,9 @@ class Patent extends IntangibleAsset {
 }
 
 abstract interface class Thing {
-  double weight;
-
-  Thing({
-    required this.weight,
-  });
-
-  double get getWeight {
-    return weight;
-  }
-  set setWeight(double weight) {
-    this.weight = weight;
-  }
-
+  double get getWeight;
+  set setWeight(double weight);
 }
-
 
 
 void main() {
