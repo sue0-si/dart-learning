@@ -21,5 +21,11 @@ void main() {
     print(iterator.current.name);
   }
 
+  Map<String, Object> personMapping = {};
+  personMapping[person1.name] = 20;
+  personMapping[person2.name] = 25;
 
+  personMapping.forEach((key, value) {
+    print("$key의 나이는 $value");
+  });
 }
