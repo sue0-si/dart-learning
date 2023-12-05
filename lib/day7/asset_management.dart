@@ -45,6 +45,22 @@ class Patent extends IntangibleAsset {
 
 }
 
+abstract interface class Thing {
+  double weight;
+
+  Thing({
+    required this.weight,
+  });
+
+  double get getWeight {
+    return weight;
+  }
+  set setWeight(double weight) {
+    this.weight = weight;
+  }
+
+}
+
 
 
 void main() {
