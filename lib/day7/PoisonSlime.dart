@@ -25,7 +25,7 @@ class PoisonSlime extends Slime {
   @override
   void attack(Hero hero) {
     super.attack(hero);
-    if (remain != 0) {
+    if (remain > 0) {
       print("추가로, 독 포자를 살포했다!");
       hero.hp -= hp * (1 / 5).round();
       print("${hero.hp}포인트의 데미지");
