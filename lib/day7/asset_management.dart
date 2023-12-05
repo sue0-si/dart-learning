@@ -1,4 +1,4 @@
-class Book {
+class Book extends TangibleAsset {
   String name;
   int price;
   String color;
@@ -12,7 +12,7 @@ class Book {
   });
 }
 
-class Computer {
+class Computer extends TangibleAsset {
   String name;
   int price;
   String color;
@@ -24,6 +24,10 @@ class Computer {
     required this.color,
     required this.makerName,
   });
+}
+
+abstract class TangibleAsset {
+
 }
 
 void main() {
