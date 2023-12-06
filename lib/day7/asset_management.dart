@@ -6,6 +6,7 @@ class Book extends TangibleAsset {
     required super.price,
     required super.color,
     required this.isbn,
+    required super.weight
   });
 
 }
@@ -18,23 +19,28 @@ class Computer extends TangibleAsset {
     required super.price,
     required super.color,
     required this.makerName,
+    required super.weight
   });
 
 }
 
 abstract class TangibleAsset extends Asset implements Thing {
+  String color;
+  double _weight;
+
   TangibleAsset({
     required super.name,
     required super.price,
-    required super.color
-  });
+    required this.color,
+    required double weight
+  }) : _weight = weight;
 
   @override
-  double get weight => weight;
+  double get weight => _weight;
 
   @override
   set weight(double weight) {
-    weight = weight;
+    _weight = weight;
   }
 }
 
@@ -47,12 +53,10 @@ abstract interface class Thing {
 abstract class Asset {
   String name;
   int price;
-  String color;
 
   Asset({
     required this.name,
     required this.price,
-    required this.color
   });
 }
 
