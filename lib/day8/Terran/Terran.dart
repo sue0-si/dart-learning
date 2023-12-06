@@ -2,5 +2,9 @@
 // 기계 유닛(Mechanic)인 Tank, Vulture, SCV 등이 있습니다.
 
 class Terran {
+  int hp;
 
+  Terran({
+    required this.hp,
+  });
 }
