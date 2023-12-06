@@ -1,34 +1,34 @@
 class Book extends TangibleAsset {
-  String name;
-  int price;
-  String color;
   String isbn;
 
   Book({
-    required this.name,
-    required this.price,
-    required this.color,
+    required super.name,
+    required super.price,
+    required super.color,
     required this.isbn,
   });
 
 }
 
 class Computer extends TangibleAsset {
-  String name;
-  int price;
-  String color;
   String makerName;
 
   Computer({
-    required this.name,
-    required this.price,
-    required this.color,
+    required super.name,
+    required super.price,
+    required super.color,
     required this.makerName,
   });
 
 }
 
 abstract class TangibleAsset extends Asset implements Thing {
+  TangibleAsset({
+    required super.name,
+    required super.price,
+    required super.color
+  });
+
   @override
   double get weight => weight;
 
@@ -36,7 +36,6 @@ abstract class TangibleAsset extends Asset implements Thing {
   set weight(double weight) {
     weight = weight;
   }
-
 }
 
 abstract interface class Thing {
@@ -46,7 +45,15 @@ abstract interface class Thing {
 
 // 가
 abstract class Asset {
+  String name;
+  int price;
+  String color;
 
+  Asset({
+    required this.name,
+    required this.price,
+    required this.color
+  });
 }
 
 // //나
