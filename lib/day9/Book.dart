@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 class Book implements Comparable<Book> {
   String title;
   DateTime publishDate = DateTime.now();
@@ -40,7 +42,8 @@ class Book implements Comparable<Book> {
           other is Book &&
               runtimeType == other.runtimeType
               && title == other.title
-              && publishDate == other.publishDate;
+              && DateFormat('yyyy-MM-dd').format(publishDate) ==
+              DateFormat('yyyy-MM-dd').format(other.publishDate);
 
 
   @override
@@ -56,7 +59,7 @@ class Book implements Comparable<Book> {
 void main() {
   Book book1 = Book(title: "Harry Potter", publishDate: DateTime(1944, 6, 6), comment: 'steadySeller');
   Book book2 = Book(title: "One Piece", publishDate: DateTime(1944, 6, 6), comment: 'comics');
-  Book book3 = Book(title: "Harry Potter", publishDate: DateTime(1944, 6, 6), comment: 'seller');
+  Book book3 = Book(title: "Harry Potter", publishDate: DateTime(1944, 4, 6), comment: 'seller');
   List<Book> bookList = [book2, book1, book3];
   Set<Book> bookSet = {book1, book2, book3};
 
@@ -78,7 +81,9 @@ void main() {
 
   print(book4 == book2);
   print(book5 == book2);
+  book4.title = 'Bible';
   print(book5.hashCode);
   print(book4.hashCode);
+  print(book2.hashCode);
 
 }
