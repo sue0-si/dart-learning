@@ -1,6 +1,7 @@
 class Word {
   String word = '';
 
+  // i 번째 글자가 모음인지 알려주는 isVowel() 함수
   bool isVowel(int i) {
     String letter = word.substring(i, i + 1);
     List<String> vowels = ['a', 'e', 'i', 'o', 'u'];
@@ -14,6 +15,11 @@ class Word {
     return false;
   }
 
+  // i 번째 글자가 자음인지 알려주는 isConsonant() 함수
+  bool isConsonant(int i) {
+    return !isVowel(i);
+  }
+
   Word({
     required this.word,
   });
@@ -22,4 +28,6 @@ class Word {
 void main() {
   Word word = Word(word: 'applE');
   print(word.isVowel(4));
+  print(word.isConsonant(4));
+
 }
