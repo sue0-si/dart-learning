@@ -3,7 +3,6 @@
 // 버퍼링이나 에러 처리는 하지 않는다.
 import 'dart:io';
 
-
 void main() {
   void copy (String source, String target) {
     final sourceFile = File(source);
