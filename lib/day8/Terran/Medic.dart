@@ -1,3 +1,5 @@
+import 'package:dart/day8/Building.dart';
+
 import '../Bionic.dart';
 import 'Terran.dart';
 import '../Unit.dart';
@@ -12,6 +14,10 @@ class Medic extends Terran implements Bionic {
   });
 
   void heal(Unit unit) {
+    if (unit is Building) {
+
+      return;
+    }
 
   }
 
