@@ -3,17 +3,20 @@
 // 버퍼링이나 에러 처리는 하지 않는다.
 import 'dart:io';
 
+void copy (String source, String target) {
+  final sourceFile = File(source);
+  final targetFile = File(target);
+
+  final text = sourceFile.readAsStringSync();
+  targetFile.writeAsStringSync(text);
+}
+
+// easier
+void copy2(String source, String target) => File(source).copySync(target);
+
 void main() {
-  void copy (String source, String target) {
-    final sourceFile = File(source);
-    final targetFile = File(target);
-
-    sourceFile.writeAsStringSync("졸음껌과 박하사탕");
-
-    final text = sourceFile.readAsStringSync();
-    targetFile.writeAsStringSync(text);
-  }
-
   copy("source.txt", "target.txt");
 }
+
+
 

@@ -18,7 +18,6 @@ class Employee {
     'name' : name,
     'age' : age
   };
-
 }
 
 class Department {
@@ -29,14 +28,23 @@ class Department {
     required this.name,
     required this.leader,
   });
+
+  Map<String, dynamic> toJson() {
+    return {
+      'department': name,
+      'leader': leader,
+    };
+  }
+
 }
 
 void main() {
   // 총무부 리더 ‘홍길동(41세)’의 인스턴스
-  Employee adminLeader = Employee(name: "홍길동", age: 41);
+  Employee employee = Employee(name: "홍길동", age: 41);
+  Department adminLeader = Department(name: "총무부", leader: employee);
 
   // company.txt 파일 생성 & 파일에 json 데이터 넣기
-  final companyFile = File("company.txt");
+  final companyFile = File("lib/day11/company.txt");
   companyFile.writeAsStringSync(jsonEncode(adminLeader.toJson()));
 }
 
