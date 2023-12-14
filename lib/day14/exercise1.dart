@@ -10,12 +10,10 @@ void main() async {
   print(todo.title);
 
   // 실습2
-  List<Todo> todos = await getTodos();
+  List<Todo> todos = await getTodos2();
   for (var element in todos) {
     print(element.title);
   }
-
-  // 실습3
 
 }
 
