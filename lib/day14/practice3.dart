@@ -6,8 +6,9 @@ import 'package:http/http.dart' as http;
 // Uint8List 는 “고정 길이 unsigned 8byte integer array” 이다.
 // 즉, byteArray 타입이라고 보면 된다. 즉, 메모리다.
 Future<Uint8List> downloadImage(String url) async {
+  print("다운로드 시작");
   final response = await http.get(Uri.parse(url));
-  // return Results.fromJson(jsonDecode(response.body));
+  print("다운로드 끝");
   return response.bodyBytes;
 }
 
@@ -23,6 +24,14 @@ Future<File> saveFile(Uint8List bytes, String fileName) async {
 // 저장 위치 : 아무데나
 // 파일명 : icon.ico
 void main() async {
+  final startTime = DateTime.now();
   final imageBytes = await downloadImage('https://alimipro.com/favicon.ico');
   saveFile(imageBytes, 'icon.ico');
+  final endTime = DateTime.now();
+
+  // 다운로드 시간 & 용량 표시
+  print("=========");
+  print("소요시간 : ${endTime.difference(startTime)}");
+  print("용량 : ${imageBytes.length}bytes");
+
 }
