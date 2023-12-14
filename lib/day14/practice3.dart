@@ -34,4 +34,29 @@ void main() async {
   print("소요시간 : ${endTime.difference(startTime)}");
   print("용량 : ${imageBytes.length}bytes");
 
+
+  // 순차적 다운로드 시간 & 용량 표시
+  print("=========");
+
+  final sequentialStartTime = DateTime.now();
+  await downloadImage('https://alimipro.com/favicon.ico');
+  await downloadImage('https://alimipro.com/favicon.ico');
+  await downloadImage('https://alimipro.com/favicon.ico');
+  final sequentialEndTime = DateTime.now();
+
+  print("순차적 다운로드 소요시간 : ${sequentialEndTime.difference(sequentialStartTime)}");
+
+  // 병렬적 다운로드 시간 & 용량 표시
+  print("=========");
+  final parallelStartTime = DateTime.now();
+  await Future.wait([
+    downloadImage('https://alimipro.com/favicon.ico'),
+    downloadImage('https://alimipro.com/favicon.ico'),
+    downloadImage('https://alimipro.com/favicon.ico')
+  ]);
+  final parallelEndTime = DateTime.now();
+
+  print("병렬적 다운로드 소요시간 : ${parallelEndTime.difference(parallelStartTime)}");
+
+  // 결론: 순차적 처리보다 병렬 처리가 소요되는 시간이 짧다.
 }
