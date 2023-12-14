@@ -25,7 +25,13 @@ Future<File> saveFile(Uint8List bytes, String fileName) async {
 // 파일명 : icon.ico
 void main() async {
   final startTime = DateTime.now();
-  final imageBytes = await downloadImage('https://alimipro.com/favicon.ico');
+  Uint8List imageBytes;
+  try{
+    imageBytes = await downloadImage('https://alimipo.com/favicon.ico');
+  } catch(e) {
+    print('입력된 경로를 찾을 수 없습니다. 다른 경로로 다운로드를 시도합니다.');
+    imageBytes = await downloadImage('https://alimipro.com/favicon.ico');
+  }
   saveFile(imageBytes, 'icon.ico');
   final endTime = DateTime.now();
 
