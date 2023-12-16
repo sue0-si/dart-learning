@@ -10,6 +10,8 @@ Future<Uint8List> downloadImage(String url) async {
   final response = await http.get(Uri.parse(url));
   print("다운로드 끝");
   return response.bodyBytes;
+  // return http.readBytes(Uri.parse(url));
+  //          -> requestCode가 200이 아니면 ClientException을 내기 때문에 예외 처리 필수
 }
 
 // 2. 메모리에 저장된 사진을 파일로 저장하는 함수
