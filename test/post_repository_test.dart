@@ -1,6 +1,6 @@
 import 'dart:convert';
-import 'package:dart/day16/post.dart';
-import 'package:dart/day16/post_repository.dart';
+import 'package:dart/day16/class/post.dart';
+import 'package:dart/day16/class/post_repository.dart';
 import 'package:test/test.dart';
 
 // 네트워크 환경에 의존하면 안 된다!!!

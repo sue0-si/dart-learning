@@ -1,4 +1,4 @@
-import 'package:dart/day16/account.dart';
+import 'package:dart/day16/class/account.dart';
 import 'package:test/test.dart';
 
 void main() {
