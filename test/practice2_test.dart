@@ -5,5 +5,6 @@ void main() {
   test('짝수 판별', () {
     CheckEven checkEven = CheckEven();
     expect(checkEven.isEven(4), true);
+    expect(checkEven.isEven(3), false);
   });
 }
