@@ -25,6 +25,7 @@ class PostFileRepositoryImpl implements PostRepository {
       return;
     }
     _postList.remove(post);
+    await _writeFile();
   }
 
   @override
